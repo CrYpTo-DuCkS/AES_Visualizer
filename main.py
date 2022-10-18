@@ -11,7 +11,7 @@ from animation_logic import logic
 grid = Grid(100, 100, 50)
 grid.initialize_grid()
 
-text = Text(grid, range(0, 255, 15), 3, 3)
+text = Text(grid, [random.randint(0, 255) for i in range(16)], x=5, y=5, speed=2, size=grid.get_size())
 
 if __name__ == '__main__':
 

@@ -35,8 +35,10 @@ def run_gui(grid, text):
         screen.fill('black')
         camera.update()
         screen.blit(grid.grid, camera.offset)
+
         screen.blit(text.text, get_object_location(text.get_location(), camera.offset))
         text.update_colors()
+        text.move()
 
         pygame.display.flip()
         clock.tick(32)
