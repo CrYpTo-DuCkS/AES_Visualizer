@@ -16,6 +16,16 @@ class Text(pygame.sprite.Sprite):
         self.direction = 0
         pygame.font.init()
         self.font = pygame.font.Font('freesansbold.ttf', 25)
+        self.show = True
+
+    def set_location(self, x, y):
+        self.location = [x * self.cell_size, y * self.cell_size]
+
+    def get_show(self):
+        return self.show
+
+    def set_show(self, val):
+        self.show = val
 
     def start(self):
         self.is_stop = False
