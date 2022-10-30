@@ -72,4 +72,5 @@ class Xor(KeyCol):
 
         sleep(0.8)
 
+
         return [val1[i] ^ val2[i] for i in range(4)]

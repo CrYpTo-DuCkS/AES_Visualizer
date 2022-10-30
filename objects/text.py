@@ -71,6 +71,22 @@ class Text(pygame.sprite.Sprite):
                 sleep(0.5)
             sleep(0.5)
 
+    def add_round_key(self, key, xor):
+        for i in range(4):
+            new_values = xor[i].show_xor([self.values[0+i],self.values[4+i],self.values[8+i],self.values[12+i]],[key.values[0+i],key.values[4+i],key.values[8+i],key.values[12+i]])
+            for j in range(4):
+                self.update_values(j,i,new_values[j])
+
+        self.update_colors()
+
+    def sub_bytes(self, sub):
+        for i in range(4):
+            new_values = sub[i].show_sub([self.values[0+i],self.values[4+i],self.values[8+i],self.values[12+i]])
+            for j in range(4):
+                self.update_values(j,i,new_values[j])
+
+        self.update_colors()
+
     def get_cell_location(self):
         return int(self.location[0] / self.cell_size), int(self.location[1] / self.cell_size)
 
@@ -88,5 +104,36 @@ class Text(pygame.sprite.Sprite):
 
     def move_down(self):
         self.location[1] += self.speed
+
+    def move_one(self):
+        self.size = self.cell_size
+
+        if self.direction == 0:
+            next = (int(self.location[0] / self.size) + 1) * self.size
+            while self.location[0] <= next:
+                self.move_right()
+                sleep(0.03)
+            self.location[0] = next
+
+        elif self.direction == 1:
+            next = (int(self.location[1] / self.size) + 1) * self.size
+            while self.location[1] <= next:
+                self.move_down()
+                sleep(0.03)
+            self.location[1] = next
+
+        elif self.direction == 2:
+            next = (int(self.location[0] / self.size) - 1) * self.size
+            while self.location[0] >= next:
+                self.move_left()
+                sleep(0.03)
+            self.location[0] = next
+
+        elif self.direction == 3:
+            next = (int(self.location[1] / self.size) - 1) * self.size
+            while self.location[1] >= next:
+                self.move_top()
+                sleep(0.03)
+            self.location[1] = next
 
 

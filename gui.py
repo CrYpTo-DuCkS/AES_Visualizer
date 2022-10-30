@@ -7,7 +7,7 @@ def get_object_location(obj_loc, camera_offset):
     return obj_loc[0] + camera_offset[0], obj_loc[1] + camera_offset[1]
 
 
-def run_gui(grid, text, col, key, sub, col2, xor, board):
+def run_gui(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes):
     pygame.init()
     screen = pygame.display.set_mode((1500, 900))
     clock = pygame.time.Clock()
@@ -37,9 +37,10 @@ def run_gui(grid, text, col, key, sub, col2, xor, board):
         screen.blit(grid.grid, camera.offset)
         screen.blit(board.board, get_object_location(board.get_location(), [0, 0]))
 
-        # screen.blit(text.text, get_object_location(text.get_location(), camera.offset))
-        # text.update_colors()
-        # text.move()
+
+        if text.get_show():
+            screen.blit(text.text, get_object_location(text.get_location(), camera.offset))
+            text.update_colors()
 
         if key.get_show():
             screen.blit(key.key, get_object_location(key.get_location(), camera.offset))
@@ -59,6 +60,14 @@ def run_gui(grid, text, col, key, sub, col2, xor, board):
 
         if xor.get_show():
             screen.blit(xor.col, get_object_location(xor.get_location(), camera.offset))
+
+        for i in range(4):
+            if xor_key[i].get_show():
+                screen.blit(xor_key[i].col, get_object_location(xor_key[i].get_location(), camera.offset))
+
+        for i in range(4):
+            if sub_bytes[i].get_show():
+                screen.blit(sub_bytes[i].col, get_object_location(sub_bytes[i].get_location(), camera.offset))
 
         pygame.display.flip()
         clock.tick(32)

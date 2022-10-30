@@ -37,8 +37,7 @@ def key_expansion(grid, key, col, sub, col2, xor, board):
 
     board.set_2_line_text(["passing the column through", "a substitution layer"])
     sleep(0.6)
-    new_val = [randint(0, 255) for _ in range(4)]
-    sub.show_sub(new_val, col.values)
+    new_val = sub.show_sub(col.values)
     col.set_values(new_val)
     sleep(0.6)
     sub.set_show(False)
@@ -122,6 +121,10 @@ def key_expansion(grid, key, col, sub, col2, xor, board):
         col.move_one()
     col.set_show(False)
 
-    key.set_direction(0)
+    key.set_direction(3)
     for _ in range(5):
+        key.move_one()
+    
+    key.set_direction(2)
+    for _ in range(8):
         key.move_one()
