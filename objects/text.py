@@ -17,6 +17,7 @@ class Text(pygame.sprite.Sprite):
         pygame.font.init()
         self.font = pygame.font.Font('freesansbold.ttf', 25)
         self.show = True
+        self.is_key = 0
 
     def set_location(self, x, y):
         self.location = [x * self.cell_size, y * self.cell_size]
@@ -55,7 +56,10 @@ class Text(pygame.sprite.Sprite):
                 curr_code = self.values[i+j*4]
                 #print("Current code", curr_code)
                 self.rect = pygame.Rect(i * self.cell_size, j * self.cell_size, self.cell_size, self.cell_size)
-                pygame.draw.rect(self.text, (247, curr_code%256, 104), self.rect)
+                if(self.is_key):
+                    pygame.draw.rect(self.text, (52, 223,curr_code%256 ), self.rect)
+                else:
+                    pygame.draw.rect(self.text, (247, curr_code%256, 104), self.rect)
                 number = self.font.render(str(curr_code), True, (0, 0, 0), None)
                 rect = number.get_rect()
                 rect.center = [(i + 0.5) * self.cell_size, (j + 0.5) * self.cell_size]

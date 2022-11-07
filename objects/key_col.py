@@ -58,7 +58,7 @@ class KeyCol(pygame.sprite.Sprite):
         for j in range(4):
             curr_code = self.values[j]
             self.rect = pygame.Rect(i * self.size, j * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (247, curr_code, 104), self.rect)
+            pygame.draw.rect(self.col, (52, 223,curr_code%256), self.rect)
             number = self.font.render(str(curr_code), True, (0, 0, 0), None)
             rect = number.get_rect()
             rect.center = [(i + 0.5) * self.size, (j + 0.5) * self.size]

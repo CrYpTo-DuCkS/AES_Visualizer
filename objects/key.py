@@ -9,6 +9,7 @@ class Key(Text):
     def __init__(self, grid, values, x=2, y=2, size=50, speed=2, color='grey'):
         super().__init__(grid, values, x, y, size, speed, color)
         self.key = self.text
+        self.is_key = 1
 
     def update_column(self, arr, col):
         for i in range(4):
