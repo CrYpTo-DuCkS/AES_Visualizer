@@ -53,9 +53,10 @@ class Text(pygame.sprite.Sprite):
         for i in range(4):
             for j in range(4):
                 curr_code = self.values[i+j*4]
+                #print("Current code", curr_code)
                 self.rect = pygame.Rect(i * self.cell_size, j * self.cell_size, self.cell_size, self.cell_size)
-                pygame.draw.rect(self.text, (curr_code, curr_code, curr_code), self.rect)
-                number = self.font.render(str(curr_code), True, (255, 0, 0), None)
+                pygame.draw.rect(self.text, (247, curr_code%256, 104), self.rect)
+                number = self.font.render(str(curr_code), True, (0, 0, 0), None)
                 rect = number.get_rect()
                 rect.center = [(i + 0.5) * self.cell_size, (j + 0.5) * self.cell_size]
                 self.text.blit(number, rect)
@@ -86,6 +87,14 @@ class Text(pygame.sprite.Sprite):
                 self.update_values(j,i,new_values[j])
 
         self.update_colors()
+
+    def mix_cols(self, mix):
+        for i in range(4):
+            new_values = mix[i].show_mix([self.values[0+i],self.values[4+i],self.values[8+i],self.values[12+i]])
+            for j in range(4):
+                self.update_values(j,i,new_values[j])
+
+
 
     def get_cell_location(self):
         return int(self.location[0] / self.cell_size), int(self.location[1] / self.cell_size)

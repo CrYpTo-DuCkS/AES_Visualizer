@@ -12,7 +12,7 @@ class Sub(KeyCol):
         self.font = pygame.font.Font('freesansbold.ttf', 25)
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render("SUB", True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -63,7 +63,7 @@ class Sub(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(str(val[i]), True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -73,7 +73,7 @@ class Sub(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(">>", True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -83,7 +83,7 @@ class Sub(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(str(self.s_box[val[i]]), True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -93,7 +93,7 @@ class Sub(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render("SUB", True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]

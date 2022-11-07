@@ -19,7 +19,7 @@ class Board(pygame.sprite.Sprite):
     def set_text(self, text):
         self.text = text
         rect = pygame.Rect(0, 0, 8 * self.size, 2 * self.size)
-        pygame.draw.rect(self.board, (0, 0, 0), rect)
+        pygame.draw.rect(self.board, (191, 121, 247), rect)
         number = self.font.render(text, True, (255, 255, 255), None)
         rect1 = number.get_rect()
         rect1.center = [4 * self.size, self.size]
@@ -27,7 +27,7 @@ class Board(pygame.sprite.Sprite):
 
     def set_2_line_text(self, text):
         rect = pygame.Rect(0, 0, 8 * self.size, 2 * self.size)
-        pygame.draw.rect(self.board, (0, 0, 0), rect)
+        pygame.draw.rect(self.board, (191, 121, 247), rect)
         number = self.font.render(text[0], True, (255, 255, 255), None)
         rect1 = number.get_rect()
         rect1.center = [4 * self.size, self.size * 0.7]

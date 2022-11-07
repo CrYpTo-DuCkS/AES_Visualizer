@@ -4,7 +4,7 @@ from time import sleep
 from key_expansion import key_expansion
 
 
-def logic(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes):
+def logic(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes, mix_cols):
     # sleep()
     key_expansion(grid, key, col, sub, col2, xor, board)
     text.set_show(True)
@@ -41,6 +41,7 @@ def logic(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes):
     key.stop()
     text.stop()
 
+    
     # for i in range(4):
     #     new_values = xor_key[i].show_xor([text.values[0+i],text.values[4+i],text.values[8+i],text.values[12+i]],[key.values[0+i],key.values[4+i],key.values[8+i],key.values[12+i]])
     #     for j in range(4):
@@ -60,6 +61,8 @@ def logic(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes):
 
     for i in range(4):
         sub_bytes[i].set_show(True)
+
+    key.set_show(False)
     
     board.set_2_line_text(["Step 2: Sub Bytes", ""])
 
@@ -74,7 +77,8 @@ def logic(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes):
 
     # text.update_colors()
     text.sub_bytes(sub_bytes)
-
+    for i in range(4):
+        sub_bytes[i].set_show(False)
     text.start()
     board.set_2_line_text(["Step 3: Shift Rows", ""])
     for _ in range(5):
@@ -82,6 +86,29 @@ def logic(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes):
     text.stop()
 
     text.shift_rows()
+
+    text.start()
+    for i in range(4):
+        mix_cols[i].set_show(True)
+    board.set_2_line_text(["Step 4: Mix Columns", ""])
+    for _ in range(5):
+        text.move_one()
+    text.stop()
+    text.mix_cols(mix_cols)
+
+    for _ in range(5):
+        text.move_one()
+    text.stop()
+
+    for i in range(4):
+        mix_cols[i].set_show(False)
+
+    board.set_2_line_text(["Completion of one round", ""])
+    text.set_direction(2)
+    for i in range(12):
+        text.move_one()
+    
+    
     
     # while 1:
     #     for i in range(1, 4):

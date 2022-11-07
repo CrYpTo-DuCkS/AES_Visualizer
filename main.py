@@ -8,6 +8,7 @@ from objects.xor import Xor
 from objects.sub import Sub
 from objects.key import Key
 from objects.board import Board
+from objects.mix_col import MixCol
 from gui import run_gui
 from animation_logic import logic
 
@@ -31,6 +32,14 @@ sub1 = Sub(grid, [random.randint(0, 255) for _ in range(16)], x=11, y=7, speed=2
 sub2 = Sub(grid, [random.randint(0, 255) for _ in range(16)], x=12, y=7, speed=2, size=grid.get_size())
 sub3 = Sub(grid, [random.randint(0, 255) for _ in range(16)], x=13, y=7, speed=2, size=grid.get_size())
 sub_bytes = [sub0,sub1,sub2,sub3]
+
+
+mix0 = MixCol(grid, [random.randint(0, 255) for _ in range(16)], x=20, y=7, speed=2, size=grid.get_size())
+mix1 = MixCol(grid, [random.randint(0, 255) for _ in range(16)], x=21, y=7, speed=2, size=grid.get_size())
+mix2 = MixCol(grid, [random.randint(0, 255) for _ in range(16)], x=22, y=7, speed=2, size=grid.get_size())
+mix3 = MixCol(grid, [random.randint(0, 255) for _ in range(16)], x=23, y=7, speed=2, size=grid.get_size())
+mix_cols = [mix0, mix1, mix2, mix3]
+
 col2 = KeyCol(grid, [random.randint(0, 255) for _ in range(16)], x=5, y=5, speed=2, size=grid.get_size())
 board = Board(11, 0, grid.get_size())
 
@@ -47,14 +56,18 @@ sub2.set_show(False)
 sub3.set_show(False)
 sub.set_show(False)
 text.set_show(False)
+mix0.set_show(False)
+mix1.set_show(False)
+mix2.set_show(False)
+mix3.set_show(False)
 # key.set_show(False)
 
 
 if __name__ == '__main__':
 
     print('starting logical thread')
-    threading.Thread(target=logic, args=[grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes], daemon=True).start()
+    threading.Thread(target=logic, args=[grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes, mix_cols], daemon=True).start()
 
     print('starting the pygame windows')
-    run_gui(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes)
+    run_gui(grid, text, col, key, sub, col2, xor, board, xor_key, sub_bytes, mix_cols)
 

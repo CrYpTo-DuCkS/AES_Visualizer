@@ -11,7 +11,7 @@ class Xor(KeyCol):
         self.val = ['XOR', 'XOR', 'XOR', 'XOR']
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(self.val[i], True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -24,7 +24,7 @@ class Xor(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(str(val2[i]), True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -34,7 +34,7 @@ class Xor(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render("^", True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -44,7 +44,7 @@ class Xor(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(str(val1[i]), True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -54,7 +54,7 @@ class Xor(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render("=", True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]
@@ -64,7 +64,7 @@ class Xor(KeyCol):
 
         for i in range(4):
             rect = pygame.Rect(0, i * self.size, self.size, self.size)
-            pygame.draw.rect(self.col, (0, 0, 0), rect)
+            pygame.draw.rect(self.col, (176, 104, 247), rect)
             number = self.font.render(str(val1[i] ^ val2[i]), True, (255, 255, 255), None)
             rect1 = number.get_rect()
             rect1.center = [0.5 * self.size, (i+0.5) * self.size]

@@ -17,7 +17,7 @@ def key_expansion(grid, key, col, sub, col2, xor, board):
     key.stop()
     sleep(0.5)
 
-    board.set_text("creating copy of last column")
+    board.set_text("Creating copy of last column")
     col.set_values([key.values[i * 4 + 3] for i in range(4)])
     loc = key.get_cell_location()
     col.set_location(loc[0]+3, loc[1])
@@ -27,7 +27,7 @@ def key_expansion(grid, key, col, sub, col2, xor, board):
     for _ in range(2):
         col.move_one()
 
-    board.set_2_line_text(["rotating column in", "upward direction"])
+    board.set_2_line_text(["Rotating column in", "upward direction"])
     sleep(0.3)
     col.shift_down()
     sleep(0.8)
@@ -35,7 +35,7 @@ def key_expansion(grid, key, col, sub, col2, xor, board):
     for _ in range(2):
         col.move_one()
 
-    board.set_2_line_text(["passing the column through", "a substitution layer"])
+    board.set_2_line_text(["Passing the column through", "a substitution layer"])
     sleep(0.6)
     new_val = sub.show_sub(col.values)
     col.set_values(new_val)
@@ -87,7 +87,7 @@ def key_expansion(grid, key, col, sub, col2, xor, board):
     col.set_values(new_values)
     col.move_one()
 
-    board.set_2_line_text(["taking the result and", "XORing with next column"])
+    board.set_2_line_text(["Taking the result and", "XORing with next column"])
     xor.set_show(True)
     xor.set_location(loc[0]+1, loc[1])
     new_values = xor.show_xor([key.values[i * 4 + 1] for i in range(4)], col.values.copy())
