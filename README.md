@@ -18,9 +18,7 @@ The visualizer was made by group Cryptoducks as a part of CS553 Cryptography cou
 
 Group members:
 
-Nikhil Chaudhary
-
-Jyotika Mahapatra
-
-Dhruv Deshmukh
+1. Nikhil Chaudhary
+2. Jyotika Mahapatra
+3. Dhruv Deshmukh
 
