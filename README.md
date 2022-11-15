@@ -17,7 +17,10 @@ The visualizer first shows one round of key expansion algorithm to generate the 
 The visualizer was made by group Cryptoducks as a part of CS553 Cryptography course by Dr. Dhiman Saha at IIT Bhilai
 
 Group members:
+
 Nikhil Chaudhary
+
 Jyotika Mahapatra
+
 Dhruv Deshmukh
 
